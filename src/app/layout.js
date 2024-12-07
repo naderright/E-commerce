@@ -2,6 +2,8 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/components/Header";
 import StoreProvider from "@/API/StoreProvider";
+import Footer from "@/components/Footer";
+import { Toaster } from "react-hot-toast";
 
 
 
@@ -31,6 +33,8 @@ export default function RootLayout({ children }) {
         <StoreProvider>
           <Header />
           {children}
+          <Toaster position="top-right"/>
+          <Footer/>
         </StoreProvider>
       </body>
     </html>

@@ -7,6 +7,11 @@ const nextConfig = {
               protocol: 'https',
               hostname: 'cdn.dummyjson.com',
             },
+
+            {
+              protocol:'https',
+              hostname :'images.pexels.com',
+            },
           ],
     }
 };

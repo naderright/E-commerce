@@ -1,12 +1,11 @@
-import BannerSlider from "@/components/Banner";
-import ProductSlider from "@/components/sliderProduct";
+import PageHome from "./Home";
+
 
 export default function Home() {
   return (
     <>
-       <BannerSlider/>
-       <ProductSlider/>
-    
+      
+    <PageHome/>
     </>
   );
 }

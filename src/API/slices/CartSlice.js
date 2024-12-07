@@ -30,7 +30,6 @@ const CartSlice = createSlice({
                 //  cartItm = cart.filter((product)=>{
                 //          product.id !== action.payload
                 //       }) 
-                      console.log(state.items);
                             
              delete state.items[action.payload]
              state.cart=state.cart.filter((product)=>product.id !== action.payload)

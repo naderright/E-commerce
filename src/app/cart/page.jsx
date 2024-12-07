@@ -3,29 +3,15 @@ import { decremantQuantity, incremantQuantity, removeFromCart } from "@/API/slic
 import CartCheck from "@/components/CartCheck";
 import CartItem from "@/components/CartItem";
 import { Navigate } from "@/utilts/Navigate";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 
 const CartPage = () => {
-  const auth = useSelector((state) => state.auth.user)
+  const {user} = useSelector((state) => state.auth)
   const cartItems = useSelector((state) => state.cart.cart)
-  const dispatch = useDispatch();
-  // const [cartItems, setCartItems] = useState([
-  //   {
-  //     id: 1,
-  //     name: "Modern Chair",
-  //     image: "https://via.placeholder.com/150",
-  //     price: 99.99,
-  //     quantity: 1,
-  //   },
-  //   {
-  //     id: 2,
-  //     name: "Elegant Lamp",
-  //     image: "https://via.placeholder.com/150",
-  //     price: 49.99,
-  //     quantity: 2,
-  //   },
-  // ]);
+  const dispatch = useDispatch();  //   {
+  
 
   // Increment quantity
   const incrementQuantity = (id) => {
@@ -40,14 +26,20 @@ const CartPage = () => {
   // Remove item from cart
   const removeItem = (id) => {
     dispatch(removeFromCart(id))
+    toast.error('remove item from cart'+ ' id = '+id)
   };
 
 
   useEffect(() => {
-    if (!auth) {
+    
+    if (!user.email) {
       Navigate('/login')
     }
+    
+       
   }, [])
+
+  
 
   return (
 

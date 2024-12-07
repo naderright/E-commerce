@@ -1,14 +1,18 @@
 'use client'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaHeart, FaShoppingBasket, FaUser, FaBars, FaTimes } from 'react-icons/fa';
 import Link from 'next/link';
 import { useSelector } from 'react-redux';
+import { Navigate } from '@/utilts/Navigate';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
-  const auth = useSelector((state) => state.auth.user)
+  const user = useSelector((state) => state.auth.user)
   const cart = useSelector((state) => state.cart.cart)
+const handlePortofilioPage = ()=>{
+  Navigate('/portfolio')
+}
 
 
   return (
@@ -16,7 +20,7 @@ export default function Header() {
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
         {/* Logo */}
         <div className="text-2xl font-bold text-gray-800">
-          <Link href="/">BrandLogo</Link>
+          <Link href="/">NaderShop</Link>
         </div>
 
         {/* Menu for large screens */}
@@ -41,15 +45,15 @@ export default function Header() {
               <div className="basket relative px-1 py-2" >
                 <FaShoppingBasket className="text-[1.3rem] text-gray-600 hover:text-gray-800 cursor-pointer" />
                 <span className='w-[1.1rem] h-[1.1rem] rounded-full bg-red-600 text-white 
-              font-semibold top-[-1%] right-[-1%] absolute text-center align-middle'>{cart.length}</span>
+              font-semibold top-[-1%] right-[-1%] absolute text-center align-middle'>{user.email?cart.length:0}</span>
               </div>
 
             </Link>
 
 
-            {!auth ? <button className='cursor-pointer rounded-sm px-2 py-1 text-white bg-blue-500 
-            font-semibold'>Login</button> :
-              <FaUser className="text-[1.3rem] text-gray-600 hover:text-gray-800 cursor-pointer" />}
+            {!user.email ? <Link href={'/login'}><button className='cursor-pointer rounded-sm px-2 py-1 text-white bg-slate-950 
+            font-semibold'>Login</button></Link> :
+              <FaUser onClick={handlePortofilioPage} className="text-[1.3rem] text-gray-600 hover:text-gray-800 cursor-pointer" />}
 
           </div>
 

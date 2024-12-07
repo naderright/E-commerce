@@ -8,7 +8,7 @@ export const AuthAction = createAsyncThunk('/auth', ({ data, formType }, thunkAP
     const { rejectWithValue } = thunkAPI;
 
     const auth = getAuth(app);
-    try {
+    
         if (formType == 'Login') {
            const user= signInWithEmailAndPassword(auth, data.email, data.password).then((userCredential) => {
             
@@ -20,7 +20,7 @@ export const AuthAction = createAsyncThunk('/auth', ({ data, formType }, thunkAP
                 
                 return user
             }).catch((error) => {                
-                return rejectWithValue(error)
+                return rejectWithValue('invalid Emaill or passward')
             });
 
             return user
@@ -35,25 +35,13 @@ export const AuthAction = createAsyncThunk('/auth', ({ data, formType }, thunkAP
                 
             }).catch((error) => {
                 
-                return rejectWithValue(error)
+                return rejectWithValue('email already exist')
             });
 
             return user
         }
-    } catch (error) {
-
-        return rejectWithValue(error)
-        
-    };
+    } 
 
 
 
-    
-
-
-
-
-
-
-
-})
+)
