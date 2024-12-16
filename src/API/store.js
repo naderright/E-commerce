@@ -14,6 +14,7 @@ import {
     REGISTER,
 } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
+import OrderSlice from "./slices/OrderSlice";
 
 
 
@@ -29,11 +30,18 @@ const cartPersistConfig = {
   whitelist:['cart','items']
 }
 
+const orderPersistConfige={
+  key:'order',
+  storage,
+  whitelist:['orderItems','amount']
+}
+
 const Rootreducer = combineReducers({
     products,
     singleProduct,
     auth: persistReducer(authPersistConfig, auth),
-    cart:persistReducer(cartPersistConfig,cart)
+    cart:persistReducer(cartPersistConfig,cart),
+    order:persistReducer(orderPersistConfige,OrderSlice)
 })
 
 export const store = configureStore({

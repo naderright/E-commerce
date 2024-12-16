@@ -18,17 +18,18 @@ import toast from 'react-hot-toast';
 function FormComponnent({ formType, loginForm }) {
     const dispatch = useDispatch()
     const { loading, error } = useSelector((state) => state.auth)
-    const { register, handleSubmit, formState: { errors }, reset, } = useForm({ mode: 'onChange', resolver: zodResolver(formType == 'Login' ? LoginSchema : RegisterSchema) });
+    const { register, handleSubmit, formState: { errors }, reset, } = useForm({ mode: 'onChange',
+         resolver: zodResolver(formType == 'Login' ? LoginSchema : RegisterSchema) });
 
     const submitForm = (data) => {
         //  console.log(data,formType);
 
-        dispatch(AuthAction({ data, formType })).unwrap().then(()=>{
+        dispatch(AuthAction({ data, formType })).unwrap().then(() => {
             toast.success('success your loagin')
             Navigate('/')
-    }).catch(()=>{
-        toast.error(error)
-    });
+        }).catch(() => {
+            toast.error(error)
+        });
 
 
 
@@ -57,7 +58,7 @@ function FormComponnent({ formType, loginForm }) {
 
 
                             <ErrorMessage
-                                errors={ errors}
+                                errors={errors}
                                 name={input.name}
                                 render={({ message }) => <p className='text-red-700 p-1'>{message}</p>}
                             />

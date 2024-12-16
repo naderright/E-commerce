@@ -1,9 +1,9 @@
 'use client'
-import  { useState } from "react";
 import Link from "next/link";
 import { useDispatch } from "react-redux";
 import { signOut } from "@/API/slices/AuthSlice";
 import { Navigate } from "@/utilts/Navigate";
+import toast from "react-hot-toast";
 
 const accountData = {
   name: "John Doe",
@@ -25,17 +25,15 @@ const accountData = {
 };
 
 const Portfolio = () => {
-    const [isLoading,setIsLoading] = useState(false)
-    const dispatch  = useDispatch()
+  const dispatch = useDispatch()
 
   // Handle Logout
   const handleLogout = () => {
-    setIsLoading(true)
+
     dispatch(signOut())
-    setIsLoading(false)
+    toast.success('loged in successfuly')
     Navigate('/login')
     // Logic for logging out
-    console.log("Logged out successfully!");
   };
 
   return (
@@ -64,7 +62,6 @@ const Portfolio = () => {
               onClick={handleLogout}
               className="mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
             >
-              {isLoading?'loading......':'Log Out'}
             </button>
           </div>
         </section>

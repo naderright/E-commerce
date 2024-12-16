@@ -1,4 +1,4 @@
- import z, { string } from 'zod'
+ import z from 'zod'
  export const LoginSchema= z.object({
     // First_name:string().min(5,{message:'should be 5 character'}).max(300,{message:'so long'}),
     // Last_name:string().min(5,{message:'should be 5 character'}).max(300,{message:'so long'}),

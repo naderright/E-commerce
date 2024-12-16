@@ -1,19 +1,27 @@
 import { addToCart } from '@/API/slices/CartSlice'
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import LoadingSpiner from './LoadingSpiner';
 import toast from 'react-hot-toast';
 // import LoadingSpiner from './LoadingSpiner';
 
 function ButtonCard({ item, quantity }) {
+
   const dispatch = useDispatch();
+  const auth = useSelector((state)=>state.auth.user)
   const [loading, setLoading] = useState(false)
-  const product = { id: item.id, title: item.title, quantity: quantity || 1, price: item.price, stock: item.stock, imag: item.thumbnail }
+  const product = { id: item.id, user:auth.email, title: item.title, quantity: quantity || 1, price: item.price, stock: item.stock, imag: item.thumbnail }
   const handlAddToCart = () => {
     setLoading(true)
-    dispatch(addToCart(product))
+    if (auth.email) {
+      dispatch(addToCart(product))
       setInterval(() => { setLoading(false) }, 1500)
       toast.success('add to cart successfuly')
+    }else{
+      setInterval(() => { setLoading(false) }, 1500)
+      toast.error('Please Login To Add Products to Your cart')
+    }
+    
    
 
     

@@ -1,5 +1,9 @@
+'use client'
 import Image from 'next/image'
+import { useSelector } from 'react-redux'
 function CartItem({ cartItems, decrementQuantity, incrementQuantity, removeItem }) {
+    const auth = useSelector((state)=>state.auth.user)
+    // const cartUser = cartItems.filter((item)=>item.user == auth.email)
     return (
         <div>
             <div className="md:col-span-2">
