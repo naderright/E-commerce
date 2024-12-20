@@ -1,3 +1,4 @@
+'use client'
 import { getAllProducts } from '@/API/actions/ProductActions'
 import ProductCard from '@/components/productCard'
 import React, { useEffect } from 'react'
