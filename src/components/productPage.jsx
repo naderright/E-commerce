@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 
 
 
-function Product() {
+function ProductPage() {
     const dispatch = useDispatch()
     const {data}= useSelector((state)=>state.products)
     // const re = async()=>{
@@ -32,4 +32,5 @@ function Product() {
   )
 }
 
-export default Product
+export default ProductPage
+

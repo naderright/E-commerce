@@ -1,5 +1,5 @@
 import React from 'react'
-import SingleProductPage from './SinglePage'
+import SingleProductPage from '../../../components/SinglePage'
 
 function page({params}) {
   
