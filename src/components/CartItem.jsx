@@ -25,7 +25,7 @@ function CartItem({ cartItems, decrementQuantity, incrementQuantity, removeItem 
                             />
                             <div className="flex-1 ml-4">
                                 <h2 className="text-lg font-semibold">{item.title}</h2>
-                                <p className="text-gray-500">${item.price.toFixed(2)}</p>
+                                <p className="text-gray-500">${item.price.toFixed(1)}</p>
                                 <div className="flex items-center mt-2">
                                     <button
                                         onClick={() => decrementQuantity(item.id)}
@@ -44,7 +44,7 @@ function CartItem({ cartItems, decrementQuantity, incrementQuantity, removeItem 
                             </div>
                             <div className="flex flex-col items-end">
                                 <p className="text-lg font-bold">
-                                    ${(item.price * item.quantity).toFixed(2)}
+                                    ${(item.price * item.quantity).toFixed(1)}
                                 </p>
                                 <button
                                     onClick={() => removeItem(item.id)}
