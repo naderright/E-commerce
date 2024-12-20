@@ -37,7 +37,7 @@ const CartPage = () => {
     }
     
        
-  }, [])
+  }, [user])
 
   
 
