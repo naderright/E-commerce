@@ -2,6 +2,9 @@
 import React from "react";
 import Link from "next/link";
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
+import Image from "next/image";
+import NaderShop from '../public/NaderShop.png'
+
 
 const Footer = () => {
   return (
@@ -11,7 +14,9 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-around items-center">
           {/* Brand Section */}
           <div className="mb-6 md:mb-0 text-center md:text-left">
-            <h2 className="text-2xl font-bold">NaderShop</h2>
+            <Link href={'/'} className="text-2xl font-bold w-full flex justify-center">
+              <Image src={NaderShop} width={150} height={120} priority alt="NaderShop"/>
+              </Link>
             <p className="text-gray-400 mt-2">
               Your one-stop shop for everything trendy!
             </p>

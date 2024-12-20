@@ -27,9 +27,11 @@ const [isloading,setIsloading] = useState(false)
       const handleOrder=()=>{
         setIsloading(true)
         // dispatch(addOrder(orderUser))
-        setIsloading(false)
+       
         toast.success('success make new order')
-         Navigate(`/checkout?amount=${total.toFixed(2)}`)
+         Navigate(`/checkout?amount=${total.toFixed(1)}`)
+         setIsloading(false)
+
 
       }
     return (

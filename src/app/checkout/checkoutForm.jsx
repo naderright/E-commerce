@@ -1,6 +1,7 @@
 'use client'
 import { removeCart } from '@/API/slices/CartSlice';
 import { addOrder } from '@/API/slices/OrderSlice';
+import sendEmail from '@/utilts/SendEmail';
 import { PaymentElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -41,9 +42,10 @@ const CheckoutForm = ({ amount }) => {
     setLoading(true)
     dispatch(addOrder(orderUser))
     dispatch(removeCart())
-    setLoading(false)
     
-    
+
+    ///send Email
+    sendEmail(auth)
 
 
     // Trigger form validation and wallet collection
@@ -80,15 +82,18 @@ const CheckoutForm = ({ amount }) => {
       // methods like iDEAL, your customer will be redirected to an intermediate
       // site first to authorize the payment, then redirected to the `return_url`.
     }
-  };
 
+    setLoading(false)
+  };
+ 
+    
   return (
     <form onSubmit={handleSubmit} >
       <div className="pyment py-[5rem] px-[5rem]">
         <PaymentElement />
         <button disabled={!stripe || loading} className='bg-slate-950 w-full text-white font-bold
          py-3 mt-2 cursor-pointer rounded-md hover:bg-slate-800' >
-          Submit
+          {loading?'loading.......':`Submit`}
         </button>
         {errorMessage && <div className='text-red-800'>{errorMessage}</div>}
 

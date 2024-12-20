@@ -5,6 +5,8 @@ import { FaHeart, FaShoppingBasket, FaUser, FaBars, FaTimes } from 'react-icons/
 import Link from 'next/link';
 import { useSelector } from 'react-redux';
 import { Navigate } from '@/utilts/Navigate';
+import Image from 'next/image';
+import NaderShop from '../public/NaderShop.png'
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,10 +19,10 @@ const handlePortofilioPage = ()=>{
 
   return (
     <header className="bg-white shadow-md fixed w-full z-10">
-      <div className="container mx-auto px-6 py-4 flex justify-between items-center">
+      <div className="container mx-auto px-6  flex justify-between items-center">
         {/* Logo */}
-        <div className="text-2xl font-bold text-gray-800">
-          <Link href="/">NaderShop</Link>
+        <div className="text-2xl font-bold text-gray-800 cursor-pointer">
+          <Link href="/"><Image src={NaderShop}  width={120} height={100} priority alt='NaderShop' /></Link>
         </div>
 
         {/* Menu for large screens */}

@@ -11,7 +11,8 @@ const CartSlice = createSlice({
     initialState,
     reducers:{
         removeCart:(state)=>{
-             state.cart = [] 
+             state.cart = [],
+             state.items={} 
         },
        addToCart:(state,action)=>{
         if (!state.items[action.payload.id]) {
