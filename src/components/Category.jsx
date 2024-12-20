@@ -35,14 +35,14 @@ const Categories = () => {
     return (
         <>
             <TitleSec name={'Categories'} />
-            <div className="container mx-auto px-4 py-8 hover:scale-105 cursor-pointer">
+            <div className="container mx-auto px-4 py-8  ">
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                     {categories.map((category,key) => (
                         <Link href={'/product'} key={key}>
                             <div
                                 key={key}
-                                className="bg-white rounded-lg shadow-md p-4 text-center cursor-pointer hover:bg-slate-50 "
+                                className="bg-white rounded-lg shadow-md p-4 h-[4rem] text-center cursor-pointer hover:bg-slate-50 "
                             >
                                 <Image
                                     width={100}

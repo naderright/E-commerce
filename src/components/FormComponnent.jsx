@@ -25,13 +25,11 @@ function FormComponnent({ formType, loginForm }) {
         //  console.log(data,formType);
 
         dispatch(AuthAction({ data, formType })).unwrap().then(() => {
-            toast.success('success your loagin')
+            toast.success(`success ${formType}`)
             Navigate('/')
         }).catch(() => {
             toast.error(error)
         });
-
-
 
 
         reset()
