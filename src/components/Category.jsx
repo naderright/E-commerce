@@ -42,7 +42,7 @@ const Categories = () => {
                         <Link href={'/product'} key={key}>
                             <div
                                 key={key}
-                                className="bg-white rounded-lg shadow-md p-4 h-[4rem] text-center cursor-pointer hover:bg-slate-50 "
+                                className="bg-white rounded-lg shadow-md p-4 h-[16rem] text-center cursor-pointer hover:bg-slate-50 "
                             >
                                 <Image
                                     width={100}
