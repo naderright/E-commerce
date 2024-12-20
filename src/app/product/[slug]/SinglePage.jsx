@@ -23,7 +23,7 @@ const SingleProductPage = ({ params }) => {
         };
 
         return ()=> dispatch(cleanUpSingleProduct());
-    }, [ params,dispatch]);
+    }, [ dispatch]);
 
     
 
