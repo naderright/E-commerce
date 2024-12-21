@@ -32,6 +32,7 @@ export const AuthAction = createAsyncThunk('/auth', ({ data, formType }, thunkAP
                     email: userCredential.user.email,
                     accessToken: userCredential.user.accessToken
                 }
+                return user
                 
             }).catch((error) => {
                 

@@ -3,6 +3,7 @@ import { removeCart } from '@/API/slices/CartSlice';
 import { addOrder } from '@/API/slices/OrderSlice';
 import sendEmail from '@/utilts/SendEmail';
 import { PaymentElement, useElements, useStripe } from '@stripe/react-stripe-js';
+
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -10,6 +11,8 @@ const CheckoutForm = ({ amount }) => {
   const dispatch = useDispatch();
   const auth = useSelector((state)=>state.auth.user)
   const cartItems = useSelector((state)=>state.cart.cart)
+  console.log(window.location.origin);
+  
 
   const stripe = useStripe();
   const elements = useElements();
@@ -21,6 +24,7 @@ const CheckoutForm = ({ amount }) => {
   }
 
   const handleSubmit = async (event) => {
+    
     // We don't want to let default form submission happen here,
     // which would refresh the page.
     event.preventDefault();
@@ -69,7 +73,7 @@ const CheckoutForm = ({ amount }) => {
       clientSecret,
       elements,
       confirmParams: {
-        return_url: "http://localhost:3000/Payment_Success",
+        return_url: `${window.location.origin}/Payment_Success`,
       },
     });
 
