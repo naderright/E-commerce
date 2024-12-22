@@ -26,7 +26,7 @@ function FormComponnent({ formType, loginForm }) {
 
         dispatch(AuthAction({ data, formType })).unwrap().then(() => {
             toast.success(`success ${formType}`)
-            Navigate('/')
+            Navigate(window.location.origin,'/')
         }).catch(() => {
             toast.error(error)
         });

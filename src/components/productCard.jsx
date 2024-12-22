@@ -2,6 +2,8 @@ import ButtonCard from "@/utilts/ButtonCard";
 import { Navigate } from "@/utilts/Navigate";
 import Image from "next/image";
 import { FaStar } from "react-icons/fa";
+import { IoIosHeartEmpty } from "react-icons/io";
+
 
 export default function ProductCard({ product}) {
 
@@ -25,12 +27,12 @@ export default function ProductCard({ product}) {
             alt={product?.title}
             className=" text-center align-middle  "
           />
-          <div className="absolute top-2 right-2 bg-white p-1 rounded-full shadow-md">
+          <div className="absolute top-2 right-2 rounded-full shadow-md">
             <button
               aria-label="Add to favorites"
-              className="text-red-500 hover:text-red-600 hover:scale-75 transition-colors text-xl"
+              className= " text-red-500 hover:text-red-600 hover:scale-75 transition-colors text-xl"
             >
-              ❤️
+             <IoIosHeartEmpty className="w-full"/>
             </button>
           </div>
         </div>

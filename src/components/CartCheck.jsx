@@ -18,7 +18,7 @@ const [isloading,setIsloading] = useState(false)
         setIsloading(true)
        
         toast.success('success make new order')
-         Navigate(`/checkout?amount=${total.toFixed(1)}`)
+         Navigate(window.location.origin,`/checkout?amount=${total.toFixed(1)}`)
          setIsloading(false)
 
 
