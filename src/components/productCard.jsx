@@ -28,12 +28,11 @@ export default function ProductCard({ product}) {
             className=" text-center align-middle  "
           />
           <div className="absolute top-2 right-2 rounded-full shadow-md">
-            <button
-              aria-label="Add to favorites"
+            <span
               className= " text-red-500 hover:text-red-600 hover:scale-75 transition-colors text-xl"
             >
-             <IoIosHeartEmpty className="w-full"/>
-            </button>
+             <IoIosHeartEmpty />
+            </span>
           </div>
         </div>
         {/* information Product */}
