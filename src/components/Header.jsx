@@ -13,7 +13,7 @@ export default function Header() {
   const user = useSelector((state) => state.auth.user)
   const cart = useSelector((state) => state.cart.cart)
 const handlePortofilioPage = ()=>{
-  Navigate('/portfolio')
+  Navigate(window.location.origin,'/profile')
 }
 
 

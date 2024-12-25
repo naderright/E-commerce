@@ -24,7 +24,7 @@ const accountData = {
   ],
 };
 
-const Portfolio = () => {
+const Profile = () => {
   const dispatch = useDispatch()
 
   const user = useSelector((state)=>state.auth.user)
@@ -34,7 +34,7 @@ const Portfolio = () => {
 
     dispatch(signOut())
     toast.success('loged in successfuly')
-    Navigate('/login')
+    Navigate(window.location.origin,'/login')
     // Logic for logging out
   };
 
@@ -109,4 +109,4 @@ const Portfolio = () => {
   );
 };
 
-export default Portfolio;
+export default Profile;
