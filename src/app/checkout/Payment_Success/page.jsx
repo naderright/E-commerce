@@ -1,4 +1,4 @@
-import PaymentSuccess from '@/utilts/PaymentSuccess'
+import PaymentSuccess from '@/components/PaymentSuccess'
 import React from 'react'
 
 function page() {

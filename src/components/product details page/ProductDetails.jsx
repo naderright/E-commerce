@@ -48,7 +48,7 @@ function ProductDetails({product}) {
                     </div>
                 </div>
                 <div className=" flex  my-2 space-x-2 ">
-                        <ButtonCard  item={product.id} quantity={quantity}/>
+                        <ButtonCard  item={product} quantity={quantity}/>
                     
                     <button className="flex items-center  space-x-2  bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md">
                         <FaHeart />

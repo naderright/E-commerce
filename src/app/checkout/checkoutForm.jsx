@@ -73,7 +73,7 @@ const CheckoutForm = ({ amount }) => {
       clientSecret,
       elements,
       confirmParams: {
-        return_url: `${window.location.origin}/Payment_Success`,
+        return_url: `${window.location.origin}/checkout/Payment_Success`,
       },
     });
 

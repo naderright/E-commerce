@@ -11,7 +11,7 @@ export default function ProductCard({ product}) {
 
 
   const handleSingleProduct = () => {
-    Navigate(`/product/${product.id}`)
+    Navigate(window.location.origin,`/product/${product.id}`)
   }
   return (
     <div  className="max-w-sm bg-white border space-x-2 border-gray-200 rounded-lg shadow-lg overflow-hidden hover:bg-slate-100 transition-transform duration-300">

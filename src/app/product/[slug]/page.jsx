@@ -1,12 +1,13 @@
+import SingleProductPage from '@/components/SinglePage'
 import React from 'react'
-import SingleProductPage from '../../../components/SinglePage'
 
 function page({params}) {
   
   
+  
   return (
     <div>
-      <SingleProductPage params={params}/>
+      <SingleProductPage params={params.slug}/>
     </div>
   )
 }

@@ -1,11 +1,12 @@
 'use client'
 import  { useEffect } from "react";
-import ProductImage from "@/components/product details page/ProductImage";
-import ProductDetails from "@/components/product details page/ProductDetails";
-import Reviews_Comment from "@/components/product details page/Reviews&Comment";
+
 import { useDispatch, useSelector } from "react-redux";
 import { getSingleProduct } from "@/API/actions/ProductActions";
 import { cleanUpSingleProduct } from "@/API/slices/SingleProductSlice";
+import ProductImage from "./product details page/ProductImage";
+import ProductDetails from "./product details page/ProductDetails";
+import Reviews_Comment from "./product details page/Reviews&Comment";
 
 
 
@@ -18,12 +19,12 @@ const SingleProductPage = ({ params }) => {
 
 
     useEffect(() => {
-        if ( data?.id != params.slug) {
-             dispatch(getSingleProduct(params.slug))
-        };
+        
+             dispatch(getSingleProduct(params))
+       
 
         return ()=> dispatch(cleanUpSingleProduct());
-    }, [ data,dispatch]);
+    }, [ dispatch]);
 
     
 
