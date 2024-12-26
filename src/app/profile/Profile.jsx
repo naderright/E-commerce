@@ -39,7 +39,7 @@ const Profile = () => {
   };
 
   return (
-    <div>
+    <div className="pt-10">
       {/* Header */}
       <header className="bg-gray-800 text-white py-10">
         <div className="container mx-auto px-4 text-center">
