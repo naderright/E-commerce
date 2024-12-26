@@ -1,9 +1,30 @@
 'use client'
+import { decremantQuantity, incremantQuantity, removeFromCart } from '@/API/slices/CartSlice';
 import Image from 'next/image'
-import { useSelector } from 'react-redux'
-function CartItem({ cartItems, decrementQuantity, incrementQuantity, removeItem }) {
-    const auth = useSelector((state)=>state.auth.user)
+import { useDispatch } from 'react-redux'
+import toast from "react-hot-toast";
+
+function CartItem({ cartItems}) {
+    // const auth = useSelector((state)=>state.auth.user)
     // const cartUser = cartItems.filter((item)=>item.user == auth.email)
+
+    const dispatch = useDispatch();  //   {
+
+     // Increment quantity
+      const incrementQuantity = (id) => {
+        dispatch(incremantQuantity(id))
+      };
+    
+      // Decrement quantity
+      const decrementQuantity = (id) => {
+        dispatch(decremantQuantity(id))
+      };
+    
+      // Remove item from cart
+      const removeItem = (id) => {
+        dispatch(removeFromCart(id))
+        toast.error('remove item from cart'+ ' id = '+id)
+      };
     return (
         <div>
             <div className="md:col-span-2">

@@ -1,33 +1,14 @@
 'use client'
-import { decremantQuantity, incremantQuantity, removeFromCart } from "@/API/slices/CartSlice";
 import CartCheck from "@/components/CartCheck";
 import CartItem from "@/components/CartItem";
 import { Navigate } from "@/utilts/Navigate";
-import { useEffect, useState } from "react";
-import toast from "react-hot-toast";
-import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import {  useSelector } from "react-redux";
 
 const CartPage = () => {
   const {user} = useSelector((state) => state.auth)
   const cartItems = useSelector((state) => state.cart.cart)
-  const dispatch = useDispatch();  //   {
   
-
-  // Increment quantity
-  const incrementQuantity = (id) => {
-    dispatch(incremantQuantity(id))
-  };
-
-  // Decrement quantity
-  const decrementQuantity = (id) => {
-    dispatch(decremantQuantity(id))
-  };
-
-  // Remove item from cart
-  const removeItem = (id) => {
-    dispatch(removeFromCart(id))
-    toast.error('remove item from cart'+ ' id = '+id)
-  };
 
 
   useEffect(() => {
@@ -37,7 +18,7 @@ const CartPage = () => {
     }
     
        
-  }, [])
+  }, [cartItems])
 
   
 
@@ -48,14 +29,10 @@ const CartPage = () => {
 
       {/* Cart Items */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <CartItem cartItems={cartItems}
-          incrementQuantity={incrementQuantity}
-          decrementQuantity={decrementQuantity}
-          removeItem={removeItem}
-        />
+        <CartItem cartItems={cartItems}/>
 
         {/* Cart Summary */}
-        <div className="checkBox ">
+        <div className="checkout ">
           <CartCheck cartItems={cartItems} />
         </div>
 

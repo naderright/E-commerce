@@ -1,6 +1,7 @@
 'use client'
 import { removeCart } from '@/API/slices/CartSlice';
 import { addOrder } from '@/API/slices/OrderSlice';
+import LoadingSpiner from '@/utilts/LoadingSpiner';
 import sendEmail from '@/utilts/SendEmail';
 import { PaymentElement, useElements, useStripe } from '@stripe/react-stripe-js';
 
@@ -97,7 +98,7 @@ const CheckoutForm = ({ amount }) => {
         <PaymentElement />
         <button disabled={!stripe || loading} className='bg-slate-950 w-full text-white font-bold
          py-3 mt-2 cursor-pointer rounded-md hover:bg-slate-800' >
-          {loading?'loading.......':`Submit`}
+          {loading?<LoadingSpiner/>:`Submit`}
         </button>
         {errorMessage && <div className='text-red-800'>{errorMessage}</div>}
 

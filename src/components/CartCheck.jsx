@@ -1,4 +1,5 @@
 'use client'
+import LoadingSpiner from '@/utilts/LoadingSpiner';
 import { Navigate } from '@/utilts/Navigate';
 import { useState } from 'react';
 import toast from 'react-hot-toast';
@@ -41,7 +42,7 @@ const [isloading,setIsloading] = useState(false)
                     <span>${total.toFixed(1)}</span>
                 </div>
                 <button disabled={isloading} onClick={handleOrder} className="w-full bg-slate-950 text-white py-2 rounded mt-4">
-                   {isloading?'Proceesing......':'Checkout'} 
+                   {isloading?<LoadingSpiner/>:'Checkout'} 
                 </button>
             </div>
         </div>
