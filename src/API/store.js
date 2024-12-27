@@ -27,13 +27,13 @@ const authPersistConfig = {
 const cartPersistConfig = {
   key:'cart',
   storage,
-  whitelist:['cart','items']
+  whitelist:['cart']
 }
 
 const orderPersistConfige={
   key:'order',
   storage,
-  whitelist:['orderItems','amount']
+  whitelist:['orderItems']
 }
 
 const Rootreducer = combineReducers({

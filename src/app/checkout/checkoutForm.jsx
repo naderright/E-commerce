@@ -1,6 +1,6 @@
 'use client'
-import { removeCart } from '@/API/slices/CartSlice';
-import { addOrder } from '@/API/slices/OrderSlice';
+
+import { CreateOrder } from '@/utilts/CreateOrder';
 import LoadingSpiner from '@/utilts/LoadingSpiner';
 import sendEmail from '@/utilts/SendEmail';
 import { PaymentElement, useElements, useStripe } from '@stripe/react-stripe-js';
@@ -10,10 +10,9 @@ import { useDispatch, useSelector } from 'react-redux';
 
 const CheckoutForm = ({ amount }) => {
   const dispatch = useDispatch();
-  const auth = useSelector((state)=>state.auth.user)
-  const cartItems = useSelector((state)=>state.cart.cart)
-  console.log(window.location.origin);
-  
+  const auth = useSelector((state) => state.auth.user)
+  const cartItems = useSelector((state) => state.cart.cart)
+
 
   const stripe = useStripe();
   const elements = useElements();
@@ -25,10 +24,12 @@ const CheckoutForm = ({ amount }) => {
   }
 
   const handleSubmit = async (event) => {
-    
+
     // We don't want to let default form submission happen here,
     // which would refresh the page.
     event.preventDefault();
+
+    setLoading(true)
 
     if (!stripe || !elements) {
       // Stripe.js hasn't yet loaded.
@@ -37,17 +38,8 @@ const CheckoutForm = ({ amount }) => {
     }
 
     //// create order
-    const cartUser = cartItems.filter((item) => item.user == auth.email);
-    const orderUser = {
-      user: auth.email,
-      items: cartUser,
-      amount: amount
-    }
-    
-    setLoading(true)
-    dispatch(addOrder(orderUser))
-    dispatch(removeCart())
-    
+   
+    CreateOrder(cartItems,dispatch,auth,amount)
 
     ///send Email
     sendEmail(auth)
@@ -90,15 +82,15 @@ const CheckoutForm = ({ amount }) => {
 
     setLoading(false)
   };
- 
-    
+
+
   return (
     <form onSubmit={handleSubmit} >
       <div className="pyment py-[5rem] px-[5rem]">
         <PaymentElement />
         <button disabled={!stripe || loading} className='bg-slate-950 w-full text-white font-bold
          py-3 mt-2 cursor-pointer rounded-md hover:bg-slate-800' >
-          {loading?<LoadingSpiner/>:`Submit`}
+          {loading ? <LoadingSpiner /> : `Submit`}
         </button>
         {errorMessage && <div className='text-red-800'>{errorMessage}</div>}
 

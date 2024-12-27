@@ -14,7 +14,8 @@ export default function Header() {
 
   const [isOpen, setIsOpen] = useState(false);
   const user = useSelector((state) => state.auth.user)
-  const cart = useSelector((state) => state.cart.cart)
+  const allCart = useSelector((state) => state.cart.cart)
+   const cart = allCart.filter((item)=>item.user == user.email)
   const handlePortofilioPage = () => {
     Navigate(window.location.origin, '/profile')
   }

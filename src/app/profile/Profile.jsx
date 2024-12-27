@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { signOut } from "@/API/slices/AuthSlice";
 import { Navigate } from "@/utilts/Navigate";
 import toast from "react-hot-toast";
+import OrderHistory from "@/components/OrderHistory";
 
 const accountData = {
   name: "John Doe",
@@ -33,7 +34,7 @@ const Profile = () => {
   const handleLogout = () => {
 
     dispatch(signOut())
-    toast.success('loged in successfuly')
+    toast.success('loged out successfuly')
     Navigate(window.location.origin,'/login')
     // Logic for logging out
   };
@@ -68,42 +69,7 @@ const Profile = () => {
         </section>
 
         {/* Orders Section */}
-        <section className="mb-10">
-          <h2 className="text-2xl font-bold mb-4">Order History</h2>
-          <div className="bg-white shadow-md rounded-lg p-6">
-            {accountData.orders.length > 0 ? (
-              <table className="table-auto w-full text-left border-collapse">
-                <thead>
-                  <tr>
-                    <th className="border-b py-2">Date</th>
-                    <th className="border-b py-2">Status</th>
-                    <th className="border-b py-2">Total</th>
-                    <th className="border-b py-2">Details</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {accountData.orders.map((order) => (
-                    <tr key={order.id}>
-                      <td className="py-2 border-b">{order.date}</td>
-                      <td className="py-2 border-b">{order.status}</td>
-                      <td className="py-2 border-b">{order.total}</td>
-                      <td className="py-2 border-b">
-                        <Link
-                          href={`/`}
-                          className="text-blue-500 hover:underline"
-                        >
-                          View
-                        </Link>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            ) : (
-              <p className="text-gray-700">No orders yet.</p>
-            )}
-          </div>
-        </section>
+       <OrderHistory/>
       </main>
     </div>
   );

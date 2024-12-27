@@ -11,7 +11,7 @@ const OrderSlice = createSlice({
     initialState,
     reducers:{
         addOrder:(state,action)=>{
-          state.orderItems=action.payload
+          state.orderItems.push(action.payload)
         }
     }
 });

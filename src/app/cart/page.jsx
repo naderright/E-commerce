@@ -7,7 +7,9 @@ import {  useSelector } from "react-redux";
 
 const CartPage = () => {
   const {user} = useSelector((state) => state.auth)
-  const cartItems = useSelector((state) => state.cart.cart)
+  const cart = useSelector((state) => state.cart.cart)
+
+  const cartItems = cart.filter((item)=>item.user == user.email)
   
 
 
