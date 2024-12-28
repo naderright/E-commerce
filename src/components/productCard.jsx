@@ -22,7 +22,6 @@ export default function ProductCard({ product}) {
             width={200}
             height={200}
             priority
-            property="true"
             src={product?.thumbnail}
             alt={product?.title}
             className=" text-center align-middle  "
