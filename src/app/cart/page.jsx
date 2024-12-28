@@ -2,7 +2,6 @@
 import CartCheck from "@/components/CartCheck";
 import CartItem from "@/components/CartItem";
 import { Navigate } from "@/utilts/Navigate";
-import { useRouter } from "next/router";
 import { useEffect } from "react";
 import {  useSelector } from "react-redux";
 
