@@ -1,4 +1,4 @@
- export const GetSecretClientPayment=async ()=>{
+ export const GetSecretClientPayment=async (amount)=>{
     const res = await fetch('api/create-intent', {
         method: 'POST',
         body: JSON.stringify({

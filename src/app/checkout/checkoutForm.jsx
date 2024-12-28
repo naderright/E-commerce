@@ -53,7 +53,7 @@ const CheckoutForm = ({ amount }) => {
       return;
     }
     /// get client secret
-    const clientSecret = GetSecretClientPayment()
+    const clientSecret = GetSecretClientPayment(amount)
 
     const result = await stripe.confirmPayment({
       //`Elements` instance that was used to create the Payment Element
