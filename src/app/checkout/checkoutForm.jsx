@@ -30,6 +30,8 @@ const CheckoutForm = ({ amount }) => {
     // which would refresh the page.
     event.preventDefault();
 
+
+
     setLoading(true)
 
     if (!stripe || !elements) {
@@ -53,7 +55,8 @@ const CheckoutForm = ({ amount }) => {
       return;
     }
     /// get client secret
-    const clientSecret = GetSecretClientPayment(amount)
+    const clientSecret = await GetSecretClientPayment(amount)
+
 
     const result = await stripe.confirmPayment({
       //`Elements` instance that was used to create the Payment Element

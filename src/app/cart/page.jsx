@@ -2,17 +2,18 @@
 import CartCheck from "@/components/CartCheck";
 import CartItem from "@/components/CartItem";
 import { Navigate } from "@/utilts/Navigate";
+import { useRouter } from "next/router";
 import { useEffect } from "react";
 import {  useSelector } from "react-redux";
 
 const CartPage = () => {
+ 
   const {user} = useSelector((state) => state.auth)
   const cart = useSelector((state) => state.cart.cart)
 
   const cartItems = cart.filter((item)=>item.user == user.email)
   
-
-
+   
   useEffect(() => {
     
     if (!user.email) {
