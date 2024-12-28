@@ -24,7 +24,7 @@ const SingleProductPage = ({ params }) => {
        
 
         return ()=> dispatch(cleanUpSingleProduct());
-    }, [ dispatch]);
+    }, [ params,dispatch]);
 
     
 

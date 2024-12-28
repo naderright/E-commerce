@@ -1,6 +1,7 @@
 'use client'
 
 import { CreateOrder } from '@/utilts/CreateOrder';
+import { GetSecretClientPayment } from '@/utilts/GetSecretClientPayment';
 import LoadingSpiner from '@/utilts/LoadingSpiner';
 import sendEmail from '@/utilts/SendEmail';
 import { PaymentElement, useElements, useStripe } from '@stripe/react-stripe-js';
@@ -38,8 +39,8 @@ const CheckoutForm = ({ amount }) => {
     }
 
     //// create order
-   
-    CreateOrder(cartItems,dispatch,auth,amount)
+
+    CreateOrder(cartItems, dispatch, auth, amount)
 
     ///send Email
     sendEmail(auth)
@@ -51,15 +52,8 @@ const CheckoutForm = ({ amount }) => {
       handleError(submitError);
       return;
     }
-
-    const res = await fetch('api/create-intent', {
-      method: 'POST',
-      body: JSON.stringify({
-        amount: amount
-      })
-    });
-
-    const clientSecret = await res.json();
+    /// get client secret
+    const clientSecret = GetSecretClientPayment()
 
     const result = await stripe.confirmPayment({
       //`Elements` instance that was used to create the Payment Element

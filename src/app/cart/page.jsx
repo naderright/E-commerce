@@ -20,7 +20,7 @@ const CartPage = () => {
     }
     
        
-  }, [])
+  }, [user.email])
 
   
 
