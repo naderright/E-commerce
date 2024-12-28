@@ -1,11 +1,9 @@
-import OrderDetailsPage from '@/components/OrderDetailsPage'
-import TitleSec from '@/components/TiltleSec'
+import OrderDetailsPage from '@/components/orderPreview/OrderDetailsPage'
 import React from 'react'
 
 function page() {
   return (
     <div className='px-11 py-[3rem]'>
-        <TitleSec name={'Order'}/>
       <OrderDetailsPage/>
     </div>
   )
