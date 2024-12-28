@@ -16,7 +16,7 @@ const CartSlice = createSlice({
         },
         addToCart: (state, action) => {
 
-            const checkFindItem = state.cart.filter((item) => item.id == action.payload.id)
+            const checkFindItem = state.cart.filter((item) => item.id == action.payload.id && action.payload.email == item.email)
 
             if (checkFindItem==false) {
                 state.cart.push(action.payload);
