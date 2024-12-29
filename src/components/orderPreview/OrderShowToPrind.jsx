@@ -13,11 +13,12 @@ function OrderShowToPrind({ contentRef }) {
     return (
         <div>
            
-            <div ref={contentRef} className='px-5 ' >
+            <div ref={contentRef} className='px-5 pt-6' >
                 <div className="order_details">
-                <h3 className='w-full text-center font-bold text-[1.3rem]'>Order Details</h3>
-                    <div className="logo flex justify-between flex-row-reverse">
-                        <Image src={logo} width={170} height={150} alt='nadershop' />
+                <Image src={logo} width={100} height={100} alt='nadershop' className=' md:w-[10rem]'/>
+                <h3 className='w-full text-center font-bold text-[1rem]'>Order Details</h3>
+                    <div className="logo ">
+                        
                         <div className="informaion mt-7  shadow-sm" >
                             <h3 className='font-bold'>Email :<span className='font-normal'> {order.user}</span></h3>
                             <p className='font-bold'>Order_ID :<span className='font-normal'> {order.id}</span></p>
@@ -28,7 +29,7 @@ function OrderShowToPrind({ contentRef }) {
                     </div>
                 </div>
                 <div className="products">
-                    <h3 className='w-full text-center font-bold text-[1.4rem] py-4'>Products</h3>
+                    <h3 className='w-full text-center font-bold text-[1rem] py-4'>Products</h3>
 
                     <div className="productsItems" >
                         <table className=' text-[14px] table-fixed w-full text-left  border border-s-amber-100 border-collapse'>
