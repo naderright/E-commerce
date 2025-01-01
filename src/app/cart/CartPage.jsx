@@ -1,8 +1,7 @@
 'use client'
 import CartCheck from "@/components/CartCheck";
 import CartItem from "@/components/CartItem";
-import { Navigate } from "@/utilts/Navigate";
-import { useEffect } from "react";
+;
 import {  useSelector } from "react-redux";
 
 const CartPage = () => {
@@ -13,15 +12,6 @@ const CartPage = () => {
   const cartItems = cart.filter((item)=>item.user == user.email)
   
    
-  useEffect(() => {
-    
-    if (!user.email) {
-      Navigate('/login')
-    }
-    
-       
-  }, [user.email])
-
   
 
   return (

@@ -2,8 +2,11 @@ import dynamic from "next/dynamic";
 // import ProductPage from "../../components/productPage";
 const ProductPage = dynamic(()=>import('../../components/productPage'))
 
-
-export default function Home() {
+export const metadata = {
+  title:'products',
+  description :'products for NaderShop'
+}
+export default function Page() {
 
   return (
     <div className="container mx-auto px-4 py-[6rem]">

@@ -9,6 +9,11 @@ const loginForm =[
   {type:'password',name:'password',placeholder:'Enter your password'},
 ]
 
+ export const metadata ={
+  title:'Login',
+  description:' login for website NaderShop'
+}
+
 const LoginPage = () => {
   return (
   <>
