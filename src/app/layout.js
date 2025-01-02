@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import StoreProvider from "@/API/StoreProvider";
 import Footer from "@/components/Footer";
 import { Toaster } from "react-hot-toast";
+import ProtectRoute from "@/API/ProtectRoute";
 
 
 
@@ -32,9 +33,9 @@ export default function RootLayout({ children }) {
       >
         <StoreProvider>
           <Header />
-
-          {children}
-
+          <ProtectRoute>
+            {children}
+          </ProtectRoute>
           <Toaster position="top-right" />
           <Footer />
         </StoreProvider>
