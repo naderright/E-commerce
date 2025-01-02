@@ -31,7 +31,7 @@ function ProductPage() {
       <div className='search flex justify-center items-center   pb-4'>
 
         <input onChange={handleSearch} type="text" placeholder='search...' className='border rounded-md px-2 outline-none
-           focus:outline-none focus:ring focus:border-blue-400 w-[20rem] ' />
+           focus:outline-none focus:ring py-1 focus:border-blue-400 w-[20rem] ' />
       </div>
 
       <div className="  grid grid-cols-1 sm:grid-cols-2  lg:grid-cols-4 gap-4 md:gap-6">
