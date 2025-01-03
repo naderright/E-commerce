@@ -16,7 +16,7 @@ function ProductPage() {
 
   }
 
-  const filterProduct = data.filter((product) => product.title.toLowerCase().includes(search))
+  const filterProduct = data.filter((product) => product.title.toLowerCase().includes(search.toLocaleLowerCase()))
 
 
   useEffect(() => {
@@ -26,6 +26,7 @@ function ProductPage() {
     // console.log(data);
 
   }, [dispatch, data])
+
   return (
     <div>
       <div className='search flex justify-center items-center   pb-4'>
